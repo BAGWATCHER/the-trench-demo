@@ -6,22 +6,24 @@ Public demo repo for the Colosseum hackathon. Core codebase is private.
 
 Devnet deployment:
 - Program ID: `6fs4qcRYSdR8pd2ZPoAmLpthrqZR94Dhf6J4PLvtqQt1`
-- IDL: generated via `anchor build` in the private repo
-- TS types: generated via `anchor build` in the private repo
+- IDL: `idl.json`
+- TS types: `the_trench.ts`
 
-Quickstart (Devnet):
-```bash
-# In the private repo:
-# Install deps
-npm install
+Example usage (TypeScript):
+```ts
+import { Connection, PublicKey } from "@solana/web3.js";
+import { AnchorProvider, Program } from "@coral-xyz/anchor";
+import idl from "./idl.json";
 
-# Build program + IDL
-anchor build
+const programId = new PublicKey("6fs4qcRYSdR8pd2ZPoAmLpthrqZR94Dhf6J4PLvtqQt1");
+const connection = new Connection("https://api.devnet.solana.com", "confirmed");
+const provider = AnchorProvider.env();
+const program = new Program(idl as any, programId, provider);
 
-# Run tests against devnet (set [provider] cluster = "devnet" in Anchor.toml)
-anchor test --skip-local-validator
+// Example: list_dead_token()
+// await program.methods.listDeadToken(...).accounts({ ... }).rpc();
 ```
 
 Notes:
-- The full on-chain program + tests live in the private repo.
-- This public repo exists only to satisfy demo requirements.
+- This repo is intentionally minimal.
+- Full program source stays private.
