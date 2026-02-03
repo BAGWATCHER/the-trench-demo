@@ -9,6 +9,16 @@ Devnet deployment:
 - IDL: `idl.json`
 - TS types: `the_trench.ts`
 
+## OpenClaw Skill
+
+Install:
+```bash
+clawhub install BAGWATCHER/the-trench
+```
+
+Skill page:
+- https://www.clawhub.ai/BAGWATCHER/the-trench
+
 Example usage (TypeScript):
 ```ts
 import { Connection, PublicKey } from "@solana/web3.js";
@@ -20,7 +30,7 @@ const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 const provider = AnchorProvider.env();
 const program = new Program(idl as any, programId, provider);
 
-// Example: list_dead_token()
+// Example call
 // await program.methods.listDeadToken(...).accounts({ ... }).rpc();
 ```
 
