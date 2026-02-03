@@ -1,6 +1,7 @@
 ---
 name: the-trench
 description: Call The Trench Solana program on devnet using the public IDL and TS types.
+homepage: https://github.com/BAGWATCHER/the-trench-demo
 metadata: {"openclaw":{"emoji":"🕳️"}}
 ---
 
@@ -10,8 +11,8 @@ Use this skill to construct Anchor clients that call The Trench program on **dev
 
 ## Program
 - Program ID (devnet): `6fs4qcRYSdR8pd2ZPoAmLpthrqZR94Dhf6J4PLvtqQt1`
-- IDL: `../idl.json`
-- TS types: `../the_trench.ts`
+- IDL: `{baseDir}/../idl.json`
+- TS types: `{baseDir}/../the_trench.ts`
 
 ## Usage (TypeScript)
 ```ts
@@ -30,4 +31,4 @@ const program = new Program(idl as any, programId, provider);
 
 ## Notes
 - This skill does **not** include any private trading logic or alpha.
-- If you need mainnet, you must update the program ID and IDL accordingly.
+- If you need mainnet, update the program ID and IDL accordingly.
